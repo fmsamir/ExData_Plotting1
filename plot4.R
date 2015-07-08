@@ -42,7 +42,7 @@ par(mfrow = c(2, 2))
 
 #First plot:
 with(plothpc, plot(datetime, Global_active_power, type = "l", xlab = "", 
-                   ylab = "Global Active Power (kilowatts)"))
+                   ylab = "Global Active Power"))
 
 #Second plot:
 with(plothpc, plot(datetime, Voltage, type = "l"))
