@@ -18,10 +18,11 @@ dateindex <- which(dates == "1/2/2007" | dates == "2/2/2007")
 
 # All rows with the two dates is read for further examination. The date and
 # time columns are combined and converted to a POSIXlt time class for future
-# ease of plotting.
+# ease of plotting. Missing values (?) are also identified.
 hpc <- read.table("./household_power_consumption.txt", header = TRUE,
                   sep = ";", skip = dateindex[1] - 1, 
-                  nrows = length(dateindex), col.names = colnames)
+                  nrows = length(dateindex), col.names = colnames, 
+                  na.strings = "?")
 combdatetime <- paste(hpc$Date, hpc$Time)
 datetime <- strptime(combdatetime, format = "%d/%m/%Y %H:%M:%S", 
                      tz = "America/Los_Angeles")
